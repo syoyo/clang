@@ -1415,6 +1415,9 @@ Linux::Linux(const HostInfo &Host, const llvm::Triple &Triple)
     else if (!llvm::sys::fs::exists("/usr/lib/gcc/x86_64-pc-linux-gnu",
              Exists) && Exists)
       GccTriple = "x86_64-pc-linux-gnu";
+    else if (!llvm::sys::fs::exists("/usr/lib/gcc/x86_64-redhat-linux6E",
+             Exists) && Exists)
+      GccTriple = "x86_64-redhat-linux6E";
     else if (!llvm::sys::fs::exists("/usr/lib/gcc/x86_64-redhat-linux",
              Exists) && Exists)
       GccTriple = "x86_64-redhat-linux";
@@ -1442,7 +1445,7 @@ Linux::Linux(const HostInfo &Host, const llvm::Triple &Triple)
   }
 
   const char* GccVersions[] = {"4.5.2", "4.5.1", "4.5", "4.4.5", "4.4.4",
-                               "4.4.3", "4.4", "4.3.4", "4.3.3", "4.3.2",
+                               "4.4.3", "4.4.0", "4.4", "4.3.4", "4.3.3", "4.3.2",
                                "4.3"};
   std::string Base = "";
   for (unsigned i = 0; i < sizeof(GccVersions)/sizeof(char*); ++i) {
