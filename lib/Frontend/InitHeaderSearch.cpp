@@ -583,8 +583,10 @@ AddDefaultCPlusPlusIncludePaths(const llvm::Triple &triple) {
             false, false);
     AddPath("c:/MinGW/include/c++/4.5.2/backward", CXXSystem, true, false,
             false);
+#if 0
     // Try gcc 4.5.0
     AddMinGWCPlusPlusIncludePaths("c:/MinGW/lib/gcc", "mingw32", "4.5.0");
+#endif
     // Try gcc 4.4.0
     AddMinGWCPlusPlusIncludePaths("c:/msysgit/MinGW/lib/gcc", "mingw32", "4.4.0");
     AddMinGWCPlusPlusIncludePaths("c:/MinGW/lib/gcc", "mingw32", "4.4.0");
