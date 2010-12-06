@@ -534,6 +534,7 @@ void InitHeaderSearch::AddDefaultCIncludePaths(const llvm::Triple &triple,
     AddPath("/usr/include/w32api", System, true, false, false);
     break;
   case llvm::Triple::MinGW32:
+    AddPath("d:/mingw-w64-1.0-bin_i686-mingw_20101129/x86_64-w64-mingw32/include", System, true, false, false);
     AddPath("c:/msysgit/mingw/include", System, true, false, false);
     AddPath("c:/mingw/include", System, true, false, false);
     break;
@@ -577,6 +578,10 @@ AddDefaultCPlusPlusIncludePaths(const llvm::Triple &triple) {
             false, false);
     AddPath("c:/MinGW/include/c++/4.5.3/backward", CXXSystem, true, false,
             false);
+    // mingw-w64-20101129(chapuni's)
+    AddPath("d:/mingw-w64-1.0-bin_i686-mingw_20101129/x86_64-w64-mingw32/include/c++/4.5.2", CXXSystem, true, false, false);
+    AddPath("d:/mingw-w64-1.0-bin_i686-mingw_20101129/x86_64-w64-mingw32/include/c++/4.5.2/x86_64-w64-mingw32", CXXSystem, true, false, false);
+    AddPath("d:/mingw-w64-1.0-bin_i686-mingw_20101129/x86_64-w64-mingw32/include/c++/4.5.2/backward", CXXSystem, true, false, false);
     // mingw-w64-20101129
     AddPath("c:/MinGW/include/c++/4.5.2", CXXSystem, true, false, false);
     AddPath("c:/MinGW/include/c++/4.5.2/x86_64-w64-mingw32", CXXSystem, true,

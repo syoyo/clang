@@ -238,13 +238,14 @@ Compilation *Driver::BuildCompilation(int argc, const char **argv) {
   CCCPrintActions = Args->hasArg(options::OPT_ccc_print_phases);
   CCCPrintBindings = Args->hasArg(options::OPT_ccc_print_bindings);
   CCCIsCXX = Args->hasArg(options::OPT_ccc_cxx) || CCCIsCXX;
+    CCCGenericGCCName = "x86_64-w64-mingw32-gcc";	/* XXX */
   if (CCCIsCXX) {
 #ifdef IS_CYGWIN15
     CCCGenericGCCName = "g++-4";
 #elif defined(__linux__) && __GNUC__ == 4 && __GNUC_MINOR__ == 4
     CCCGenericGCCName = "g++44";	// CentOS5
 #else
-    CCCGenericGCCName = "g++";
+    CCCGenericGCCName = "x86_64-w64-mingw32-g++";	/* XXX */
 #endif
   }
   CCCEcho = Args->hasArg(options::OPT_ccc_echo);
