@@ -2812,7 +2812,7 @@ const TargetCodeGenInfo &CodeGenModule::getTargetCodeGenInfo() {
       return *(TheTargetCodeGenInfo =
                new X86_32TargetCodeGenInfo(Types, true, true));
     case llvm::Triple::Cygwin:
-    case llvm::Triple::MinGW32:
+    case llvm::Triple::MinGW:
     case llvm::Triple::AuroraUX:
     case llvm::Triple::DragonFly:
     case llvm::Triple::FreeBSD:
@@ -2829,7 +2829,7 @@ const TargetCodeGenInfo &CodeGenModule::getTargetCodeGenInfo() {
   case llvm::Triple::x86_64:
     switch (Triple.getOS()) {
     case llvm::Triple::Win32:
-    case llvm::Triple::MinGW64:
+    case llvm::Triple::MinGW:
     case llvm::Triple::Cygwin:
       return *(TheTargetCodeGenInfo = new WinX86_64TargetCodeGenInfo(Types));
     default:

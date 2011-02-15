@@ -2663,7 +2663,7 @@ static TargetInfo *AllocateTarget(const std::string &T) {
       return new SolarisTargetInfo<X86_32TargetInfo>(T);
     case llvm::Triple::Cygwin:
       return new CygwinX86_32TargetInfo(T);
-    case llvm::Triple::MinGW32:
+    case llvm::Triple::MinGW:
       return new MinGWX86_32TargetInfo(T);
     case llvm::Triple::Win32:
       return new VisualStudioWindowsX86_32TargetInfo(T);
@@ -2691,7 +2691,7 @@ static TargetInfo *AllocateTarget(const std::string &T) {
       return new FreeBSDTargetInfo<X86_64TargetInfo>(T);
     case llvm::Triple::Solaris:
       return new SolarisTargetInfo<X86_64TargetInfo>(T);
-    case llvm::Triple::MinGW64:
+    case llvm::Triple::MinGW:
       return new MinGWX86_64TargetInfo(T);
     case llvm::Triple::Win32:   // This is what Triple.h supports now.
       if (Triple.getEnvironment() == llvm::Triple::MachO)
