@@ -1,6 +1,6 @@
 // Test reading of PCH with changed location of original input files,
 // i.e. invoking header search.
-// XFAIL: win32
+// XFAIL: mingw,win32
 
 // Generate the original files:
 // RUN: mkdir -p %t_orig/sub %t_orig/sub2
@@ -16,6 +16,7 @@
 
 // Generate the PCH:
 // RUN: cd %t_orig && %clang_cc1 -x c++ -emit-pch -o all.h.pch -Isub2 all.h
+// RUN: cd %t_orig/..
 // RUN: rm -rf %t_moved
 // RUN: mv %t_orig %t_moved
 
