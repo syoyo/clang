@@ -1481,7 +1481,10 @@ public:
     Builder.defineMacro("_X86_");
     Builder.defineMacro("__MSVCRT__");
     Builder.defineMacro("__MINGW32__");
-    Builder.defineMacro("__declspec", "__declspec");
+    if (Opts.Microsoft)
+      Builder.defineMacro("__declspec", "__declspec");
+    else
+      Builder.defineMacro("__declspec(a)", "__attribute__((a))");
   }
 };
 } // end anonymous namespace
@@ -1631,7 +1634,10 @@ public:
     Builder.defineMacro("__MSVCRT__");
     Builder.defineMacro("__MINGW32__");
     Builder.defineMacro("__MINGW64__");
-    Builder.defineMacro("__declspec", "__declspec");
+    if (Opts.Microsoft)
+      Builder.defineMacro("__declspec", "__declspec");
+    else
+      Builder.defineMacro("__declspec(a)", "__attribute__((a))");
   }
 };
 } // end anonymous namespace
